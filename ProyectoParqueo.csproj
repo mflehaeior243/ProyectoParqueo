@@ -15,4 +15,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ProyectoParqueoApp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="proyectoparqueoapp\ProyectoParqueoApp.csproj" />
+  </ItemGroup>
+
 </Project>
