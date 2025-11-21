@@ -6,9 +6,11 @@ EXPOSE 80
 # Etapa build
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
+
+# Copiamos todo el proyecto de una vez
 COPY . .
 
-# Restaurar y publicar desde la misma carpeta donde está el .csproj
+# Restauramos y publicamos desde el mismo directorio
 RUN dotnet restore "ProyectoParqueoApp.csproj"
 RUN dotnet publish "ProyectoParqueoApp.csproj" -c Release -o /app/publish
 
@@ -17,6 +19,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "ProyectoParqueoApp.dll"]
+
 
 
 
