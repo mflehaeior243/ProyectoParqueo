@@ -7,7 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Copiamos todo el proyecto de una vez
+# Copiamos todo el proyecto
 COPY . .
 
 # Restauramos y publicamos desde el mismo directorio
@@ -19,6 +19,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "ProyectoParqueoApp.dll"]
+
 
 
 
