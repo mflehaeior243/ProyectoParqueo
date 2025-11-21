@@ -1,0 +1,36 @@
+﻿@model ProyectoParqueo.Models.Vehiculo
+
+<h2>Registrar Vehículo</h2>
+
+<form asp-action="Registrar" method="post">
+    <div class="mb-3">
+        <label asp-for="Placa" class="form-label"></label>
+        <input asp-for="Placa" class="form-control" />
+        <span asp-validation-for="Placa" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Marca" class="form-label"></label>
+        <input asp-for="Marca" class="form-control" />
+        <span asp-validation-for="Marca" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Modelo" class="form-label"></label>
+        <input asp-for="Modelo" class="form-control" />
+        <span asp-validation-for="Modelo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Color" class="form-label"></label>
+        <input asp-for="Color" class="form-control" />
+        <span asp-validation-for="Color" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+
+<form asp-action="Listado" method="get" style="margin-top:10px;">
+    <button type="submit" class="btn btn-secondary">Ver Lista de Vehículos</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

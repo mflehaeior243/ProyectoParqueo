@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ProyectoParqueo.Models.Vehiculo>
+
+<h2>Vehículos Registrados</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Color</th>
+            <th>Hora Entrada</th>
+            <th>Hora Salida</th>
+            <th>Horas Totales</th>
+            <th>Estado</th>
+            <th>Regalo</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Placa</td>
+                <td>@v.Marca</td>
+                <td>@v.Modelo</td>
+                <td>@v.Color</td>
+                <td>@v.HoraEntrada?.ToString("g")</td>
+                <td>@v.HoraSalida?.ToString("g")</td>
+                <td>@(v.HorasTotal != null ? v.HorasTotal.ToString("0.##") : "")</td>
+                <td>@v.Estado</td>
+                <td>@v.Regalo</td>
+                <td>
+                    @if (v.Estado == "Dentro")
+                    {
+                        <a class="btn btn-danger" asp-action="Salida" asp-route-id="@v.Id">
+                            Registrar Salida
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
